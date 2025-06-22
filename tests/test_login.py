@@ -11,7 +11,7 @@ import time
 @pytest.mark.order(1)
 def test_valid_login(driver):
     """Verify testbot user can successfully login."""
-    print("🔐 Starting valid login test for testbot user")
+    print("Starting valid login test for testbot user")
     login_page = LoginPage(driver)
     login_page.load(config.BASE_URL)
     login_page.login(config.BOT_USER, config.BOT_PASS)
@@ -27,7 +27,7 @@ def test_valid_login(driver):
 @pytest.mark.order(2)
 def test_lockout_after_failed_attempts(driver):
     """Verify user is locked out after 3 consecutive failed login attempts."""
-    print("🔒 Starting lockout test with invalid credentials")
+    print("Starting lockout test with invalid credentials")
     login_page = LoginPage(driver)
     login_page.load(config.BASE_URL)
 
@@ -41,7 +41,7 @@ def test_lockout_after_failed_attempts(driver):
         time.sleep(2)
 
     # Third attempt
-    print("🔒 Attempting 3rd invalid login to trigger lockout")
+    print("Attempting 3rd invalid login to trigger lockout")
     login_page.login(config.BOT_USER, "wrongpassword")
     WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.CLASS_NAME, "alert.alert-danger"))
@@ -57,7 +57,7 @@ def test_lockout_after_failed_attempts(driver):
 @pytest.mark.order(3)
 def test_testbot_user_locked_across_sessions():
     """Verify locked testbot user cannot login from different browsers."""
-    print("🔁 Verifying lockout persists across browser sessions")
+    print("Verifying lockout persists across browser sessions")
 
     # Chrome session
     chrome_driver = webdriver.Chrome()

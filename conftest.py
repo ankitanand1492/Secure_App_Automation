@@ -2,8 +2,8 @@ import pytest
 import os
 import base64
 import datetime
-from py.xml import html  # ✅ Fix for html tag usage
-from pytest_html import extras  # ✅ For screenshot extras
+from py.xml import html  
+from pytest_html import extras  
 from utils.driver_factory import get_driver
 from utils.warm_up import warm_up_app
 from utils import config
@@ -28,12 +28,12 @@ def pytest_configure(config):
 # Add "Description" column to report header
 @pytest.mark.optionalhook
 def pytest_html_results_table_header(cells):
-    cells.insert(1, html.th('Description'))  # ✅ Fix applied
+    cells.insert(1, html.th('Description'))  
 
 # Add test case docstring to the report table
 @pytest.mark.optionalhook
 def pytest_html_results_table_row(report, cells):
-    cells.insert(1, html.td(getattr(report, "description", "No description")))  # ✅ Fix applied
+    cells.insert(1, html.td(getattr(report, "description", "No description")))  
 
 # Capture screenshots on failure
 @pytest.hookimpl(hookwrapper=True)
