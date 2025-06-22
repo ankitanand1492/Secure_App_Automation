@@ -1,3 +1,7 @@
-selenium
+selenium>=4.6.0
 pytest
+pytest-order
 pytest-html
+webdriver-manager
+requests
+pyyaml
