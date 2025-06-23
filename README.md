@@ -2,14 +2,19 @@
 
 This repository contains an automated test suite using **Selenium + Pytest** to validate the secure login flow for a Flask-based web application. It covers:
 
-- ✅ Valid login with CAPTCHA
-- 🚫 Lockout after 3 failed attempts
-- ⛔ Lockout validation across browsers
-- 🔓 Unlock after timeout
-- ❌ CAPTCHA validation failure
-- 🌐 Multi-browser support
+- Valid login with CAPTCHA
+- Lockout after 3 failed attempts
+- Lockout validation across browsers
+- Unlock after timeout
+- CAPTCHA validation failure
+- Multi-browser support
 
 ---
+
+Cold Start Warning:
+When you run the automation test suite for the first time, it might take up to 60 seconds to execute due to the cold start of the application under test (e.g., warming up the server or launching dependencies).
+Subsequent runs should execute significantly faster.
+
 
 ## 🚀 Quick Start (No Virtualenv)
 
